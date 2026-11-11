@@ -5,8 +5,6 @@
 
 namespace webcc
 {
-namespace modules
-{
 namespace log
 {
 
@@ -50,7 +48,6 @@ inline bool level_from_string(const std::string& s, level& outl)
 }
 
 }   // namespace log
-}   // namespace modules
 }   // namespace webcc
 
 #endif  // __WEBCC_MODULES_LOG_LEVEL_HPP__

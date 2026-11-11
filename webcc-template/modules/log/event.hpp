@@ -13,8 +13,6 @@
 
 namespace webcc
 {
-namespace modules
-{
 namespace log
 {
 
@@ -62,7 +60,6 @@ struct event
 };
     
 }   // namespace log
-}   // namespace modules
 }   // namespace webcc
 
 #endif  // __WEBCC_MODULES_LOG_EVENT_HPP__

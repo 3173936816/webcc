@@ -3,8 +3,6 @@
 
 namespace webcc
 {
-namespace common
-{
 
 class noncopyable
 {
@@ -17,7 +15,6 @@ private:
     noncopyable& operator=(const noncopyable&);
 };
 
-}   // namespace common
 }   // namespace webcc
 
 #endif  // __WEBCC_MODULES_COMMON_NONCOPYABLE_HPP__

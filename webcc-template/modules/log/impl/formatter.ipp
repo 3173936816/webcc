@@ -1,7 +1,5 @@
 namespace webcc
 {
-namespace modules
-{
 namespace log
 {
 
@@ -243,5 +241,4 @@ void formatter::parse_pattern()
 }
 
 }   // namespace log
-}   // namespace modules
 }   // namespace webcc
