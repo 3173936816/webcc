@@ -27,7 +27,7 @@ public:
         log_fd_ = ::open(path_.c_str(),
                 O_WRONLY | O_CREAT | O_APPEND, 0644);
         if ( log_fd_ < 0 ) {
-            throw_log_exception("file_appender::file_appender open " + path_ + " file error");
+            throw_log_exception("log open " + path_ + " file error");
         }
     }
 
@@ -44,7 +44,7 @@ public:
         log_fd_ = ::open(path_.c_str(),
             O_WRONLY | O_CREAT | O_APPEND, 0644);
         if ( log_fd_ < 0 ) {
-            throw_log_exception("file_appender::reopen open " + path_ + " file error");
+            throw_log_exception("log open " + path_ + " file error");
         }
     }
 
