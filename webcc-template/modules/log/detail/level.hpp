@@ -1,11 +1,13 @@
-#ifndef __WEBCC_MODULES_LOG_LEVEL_HPP__
-#define __WEBCC_MODULES_LOG_LEVEL_HPP__
+#ifndef __WEBCC_MODULES_LOG_DETAIL_LEVEL_HPP__
+#define __WEBCC_MODULES_LOG_DETAIL_LEVEL_HPP__
 
 #include <string>
 
 namespace webcc
 {
 namespace log
+{
+namespace detail
 {
 
 #define WEBCC_MODULE_LOG_LEVEL_MAP(XX)  \
@@ -47,7 +49,8 @@ inline bool level_from_string(const std::string& s, level& outl)
     return false;
 }
 
+}   // namespace detail
 }   // namespace log
 }   // namespace webcc
 
-#endif  // __WEBCC_MODULES_LOG_LEVEL_HPP__
+#endif  // __WEBCC_MODULES_LOG_DETAIL_LEVEL_HPP__

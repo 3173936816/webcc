@@ -1,5 +1,5 @@
-#ifndef __WEBCC_MODULES_LOG_EVENT_HPP__
-#define __WEBCC_MODULES_LOG_EVENT_HPP__
+#ifndef __WEBCC_MODULES_LOG_DETAIL_EVENT_HPP__
+#define __WEBCC_MODULES_LOG_DETAIL_EVENT_HPP__
 
 #include <string>
 #include <sstream>
@@ -9,11 +9,13 @@
 #include <pthread.h>
 #include <sys/types.h>
 
-#include "modules/log/level.hpp"
+#include "modules/log/detail/level.hpp"
 
 namespace webcc
 {
 namespace log
+{
+namespace detail
 {
 
 namespace internal
@@ -54,12 +56,11 @@ struct event
         timestamp_(std::time(0)),
         file_name_(std::move(file_name)),
         file_line_(file_line),
-        logger_name_(std::move(logger_name))
-    {
-    }
+        logger_name_(std::move(logger_name)) {}
 };
-    
+
+}   // namespace detail
 }   // namespace log
 }   // namespace webcc
 
-#endif  // __WEBCC_MODULES_LOG_EVENT_HPP__
+#endif  // __WEBCC_MODULES_LOG_DETAIL_EVENT_HPP__

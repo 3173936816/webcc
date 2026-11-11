@@ -1,16 +1,18 @@
-#ifndef __WEBCC_MODULES_LOG_FORMATTER_HPP__
-#define __WEBCC_MODULES_LOG_FORMATTER_HPP__
+#ifndef __WEBCC_MODULES_LOG_DETAIL_FORMATTER_HPP__
+#define __WEBCC_MODULES_LOG_DETAIL_FORMATTER_HPP__
 
 #include <list>
 #include <string>
 #include <sstream>
 
-#include "modules/log/event.hpp"
 #include "modules/noncopyable.hpp"
+#include "modules/log/detail/event.hpp"
 
 namespace webcc
 {
 namespace log
+{
+namespace detail
 {
 
 class formatter :
@@ -44,9 +46,10 @@ private:
     std::list<item*> items_;
 };
 
+}   // namespace detail
 }   // namespace log
 }   // namespace webcc
 
 #include "modules/log/impl/formatter.ipp"
 
-#endif  // __WEBCC_MODULES_LOG_FORMATTER_HPP__
+#endif  // __WEBCC_MODULES_LOG_DETAIL_FORMATTER_HPP__
