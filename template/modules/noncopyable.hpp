@@ -1,5 +1,5 @@
-#ifndef __WEBCC_MODULES_COMMON_NONCOPYABLE_HPP__
-#define __WEBCC_MODULES_COMMON_NONCOPYABLE_HPP__
+#ifndef __WEBCC_MODULES_NONCOPYABLE_HPP__
+#define __WEBCC_MODULES_NONCOPYABLE_HPP__
 
 namespace webcc
 {
@@ -17,4 +17,4 @@ private:
 
 }   // namespace webcc
 
-#endif  // __WEBCC_MODULES_COMMON_NONCOPYABLE_HPP__
+#endif  // __WEBCC_MODULES_NONCOPYABLE_HPP__
