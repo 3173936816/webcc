@@ -18,17 +18,19 @@ class logger_manager :
     private noncopyable
 {
 public:
-    logger_manager(const std::string& config_file)
-    {
+	void load_config_file(const std::string& file)
+	{
 
-    }
+	}
 
     lcy::log4cc::logger::sptr_type get_logger_by_name(const std::string& name)
     {
-
+        
     }
 
 private:
+	lcy::log4cc::logger::sptr_type root_;
+
     std::unordered_map<
         std::string,
         lcy::log4cc::logger::sptr_type

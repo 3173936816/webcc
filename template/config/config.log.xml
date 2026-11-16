@@ -1,0 +1,70 @@
+<!--
+
+example:
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <log>
+        <level>全局默认级别</level>
+        <pattern>全局默认格式</pattern>
+
+        <appenders>
+            <appender name="名字" type="类型">
+                <pattern>可选，覆盖全局格式</pattern>
+            </appender>
+
+            <appender name="名字" type="类型">
+                <pattern>可选，覆盖全局格式</pattern>
+                <path>必填，日志文件路径</path>
+            </appender>
+
+            <appender name="名字" type="类型">
+                <pattern>可选，覆盖全局格式</pattern>
+                <path>必填，日志文件路径</path>
+                <size_limit>必填，轮转阈值，单位字节</size_limit>
+            </appender>
+        </appenders>
+
+        <loggers>
+            <logger name="名字" level="级别">
+                <pattern>可选，覆盖全局格式</pattern>
+                <appender-ref ref="名字"/>
+                <appender-ref ref="名字"/>
+            </logger>
+
+            ...
+        </loggers>
+    </log>
+
+-->
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<log>
+    <level>info</level>
+    <pattern>[%d{%Y-%m-%d %H:%M:%S}] [%l] [pid:%p] [tid:%t] [%f:%n] [%c] %m%E</pattern>
+
+    <appenders>
+        <appender name="console" type="console"/>
+
+        <appender name="file" type="file">
+            <path>logs/app.log</path>
+        </appender>
+
+        <appender name="rotating" type="rotating_file">
+            <path>logs/app.log</path>
+            <size_limit>10485760</size_limit>
+        </appender>
+    </appenders>
+
+    <loggers>
+        <logger name="root" level="info">
+            <appender-ref ref="console"/>
+            <appender-ref ref="rotating"/>
+        </logger>
+    
+        <logger name="business" level="info">
+            <appender-ref ref="console"/>
+            <appender-ref ref="rotating"/>
+        </logger>
+    </loggers>
+</log>
