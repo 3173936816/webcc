@@ -1,2 +1,6 @@
 .vscode/
 template-tests/build
+
+template/deps/builds/
+template/deps/packages/
+template/deps/sources/
