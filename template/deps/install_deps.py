@@ -6,8 +6,9 @@ import platform
 
 git_packages = [
 	# git_url, folder_name, cmake_options[optional]
-	["https://github.com/nlohmann/json.git", "nlohmann", "-DJSON_BuildTests=OFF"],
 	["https://github.com/3173936816/lcy.git", "lcy", "-DLCY_BUILD_TESTS=OFF"],
+	["https://github.com/nlohmann/json.git", "nlohmann", "-DJSON_BuildTests=OFF"],
+	["https://github.com/abin-z/inifile", "inifile", "-DINIFILE_BUILD_EXAMPLES=OFF -DINIFILE_BUILD_TESTS=OFF"]
 ]
 
 
