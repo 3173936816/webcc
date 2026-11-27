@@ -21,10 +21,18 @@ def copy_template(target):
         out_dir = target if rel_dir == "." else os.path.join(target, rel_dir)
         os.makedirs(out_dir, exist_ok=True)
 
-        for filename in sorted(filenames):
-            src = os.path.join(dirpath, filename)
-            dst = os.path.join(out_dir, filename)
-            shutil.copy2(src, dst)
+        # .gitkeep 只是为了让 template 的空目录能进 git，不直接复制
+        real_files = [name for name in sorted(filenames) if name != ".gitkeep"]
+
+        if real_files:
+            for filename in real_files:
+                src = os.path.join(dirpath, filename)
+                dst = os.path.join(out_dir, filename)
+                shutil.copy2(src, dst)
+                count += 1
+        elif rel_dir != ".":
+            # 模板里没有文件的目录，生成 .gitkeep 占位，保证能提交到 git
+            open(os.path.join(out_dir, ".gitkeep"), "w").close()
             count += 1
 
     return count
