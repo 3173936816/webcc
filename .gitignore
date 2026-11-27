@@ -1,6 +1,5 @@
 .vscode/
-template-tests/build
 
-template/deps/builds/
-template/deps/packages/
-template/deps/sources/
+dev-templates/**/deps/builds/
+dev-templates/**/deps/packages/
+dev-templates/**/deps/sources/
