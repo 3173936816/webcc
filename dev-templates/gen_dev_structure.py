@@ -9,6 +9,9 @@ TEMPLATE_DIR = os.path.normpath(
     os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "template")
 )
 
+# 所有 dev-templates 项目共享的依赖缓存，可用 WEBCC_DEPS_CACHE 覆盖
+CACHE_ROOT = os.environ.get("WEBCC_DEPS_CACHE") or os.path.expanduser("~/.cache/webcc-deps")
+
 
 def copy_template(target):
     if os.path.exists(target):
@@ -38,6 +41,26 @@ def copy_template(target):
     return count
 
 
+def link_deps(target):
+    """把 deps 下的 sources/builds/packages 链接到共享缓存，避免重复下载。"""
+    deps_dir = os.path.join(target, "deps")
+    if not os.path.isdir(deps_dir):
+        return
+
+    for name in ("sources", "builds", "packages"):
+        cache_dir = os.path.join(CACHE_ROOT, name)
+        os.makedirs(cache_dir, exist_ok=True)
+
+        link_path = os.path.join(deps_dir, name)
+        if os.path.lexists(link_path):
+            continue
+
+        try:
+            os.symlink(cache_dir, link_path)
+        except OSError as e:
+            print("Warning: failed to link %s: %s" % (link_path, e), file=sys.stderr)
+
+
 def main():
     parser = argparse.ArgumentParser(description="Copy template/ to a target directory")
     parser.add_argument("target", help="target directory to create")
@@ -49,6 +72,7 @@ def main():
 
     try:
         count = copy_template(args.target)
+        link_deps(args.target)
     except ValueError as e:
         print("Error: %s" % e, file=sys.stderr)
         return 1
