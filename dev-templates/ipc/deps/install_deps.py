@@ -38,3 +38,4 @@ if __name__ == "__main__":
 
 		os.makedirs("./builds/{0}".format(package[1]), exist_ok=True)
 		os.system("cmake ./sources/{0} -B ./builds/{0}  -DCMAKE_PREFIX_PATH=./packages -DCMAKE_INSTALL_PREFIX=./packages {1}".format(package[1], cmake_build_flags))
+		os.system("cmake --build ./builds/{0}  --parallel 8 --target install".format(package[1]))
