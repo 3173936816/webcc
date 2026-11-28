@@ -1,5 +1,5 @@
-#ifndef __WEBCC_IPC_DETAIL_FRAME_HPP__
-#define __WEBCC_IPC_DETAIL_FRAME_HPP__
+#ifndef __WEBCC_IPC_DETAIL_FRAME_HEADER_HPP__
+#define __WEBCC_IPC_DETAIL_FRAME_HEADER_HPP__
 
 #include <cstddef>
 #include <cstdint>
@@ -36,4 +36,4 @@ inline int parse_frame_header(const void* data,
 }   // namespace ipc
 }   // namespace webcc
 
-#endif  // __WEBCC_IPC_DETAIL_FRAME_HPP__
+#endif  // __WEBCC_IPC_DETAIL_FRAME_HEADER_HPP__
